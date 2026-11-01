@@ -8,7 +8,7 @@ export const AstronautCard = ({ astronaut }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   const isSelected = selectedAstronautId === astronaut.id;
-  const isFatigued = astronaut.condition === 'Fatigued';
+  const isWarning = astronaut.conditionSeverity === 'warning' || astronaut.conditionSeverity === 'critical';
 
   return (
     <div
@@ -58,15 +58,15 @@ export const AstronautCard = ({ astronaut }) => {
 
         {/* Condition Status Badge */}
         <div>
-          {isFatigued ? (
+          {isWarning ? (
             <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-50 text-amber-800 dark:bg-amber-950/40 dark:text-amber-300 border border-amber-200/50 dark:border-amber-900/40">
               <span className="w-1.5 h-1.5 rounded-full bg-amber-500 mr-1.5"></span>
-              Fatigued
+              {astronaut.condition}
             </span>
           ) : (
             <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-50 text-gray-700 dark:bg-neutral-800 dark:text-gray-300 border border-gray-100 dark:border-neutral-700">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1.5"></span>
-              Healthy
+              {astronaut.condition}
             </span>
           )}
         </div>
@@ -145,14 +145,14 @@ export const AstronautCard = ({ astronaut }) => {
       {!isMinimalView && (
         <div className="mt-4 pt-3 border-t border-gray-100 dark:border-[#24252a] text-xs space-y-1.5">
           <div className="flex justify-between text-gray-500">
-            <span>ML Anomaly Score:</span>
+            <span>Health Pattern:</span>
             <span className={`font-medium ${astronaut.mlModel.anomalyScore < 0 ? 'text-amber-600' : 'text-gray-700 dark:text-gray-300'}`}>
-              {astronaut.mlModel.anomalyScore < 0 ? 'Outlier (-0.42)' : 'Inlier (+0.38)'}
+              {astronaut.mlModel.anomalyScore < 0 ? 'Unusual (Needs rest)' : 'Normal & Steady'}
             </span>
           </div>
           {astronaut.backupOfficer && (
             <div className="flex justify-between text-gray-500">
-              <span>Designated Backup:</span>
+              <span>Assigned Backup:</span>
               <span className="text-gray-800 dark:text-gray-200">
                 {astronaut.backupOfficer.name}
               </span>

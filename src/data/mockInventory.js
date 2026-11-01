@@ -1,159 +1,158 @@
-// MED-VAULT: Deep Space Medical Inventory & Resource Intelligence
-// Module 4: Tracks supplies, shelf life under cosmic radiation, and simulated emergency consumption
+// MED-VAULT: Medical Supplies & Equipment Tracker
+// Tracks medications, life-support tools, shelf life, and emergency supplies
 
 export const MEDICAL_INVENTORY = [
   {
     id: 'MED-01',
-    category: 'Pharmaceuticals',
+    category: 'Medications',
     name: 'Modafinil 200mg',
-    indication: 'Acute Fatigue & Circadian Re-synchronization',
+    indication: 'Alertness Tablet (For Emergency Wakefulness & Fatigue)',
     stock: 74,
-    unit: 'tabs',
+    unit: 'tablets',
     minSafeStock: 30,
     shelfLifeDays: 412,
     radiationDegradationRate: '0.04%/mo',
     vitalUrgency: 'High',
-    status: 'Nominal',
-    location: 'Cryo-Lock Drawer A-2',
-    contraindications: 'Severe hypertension, active arrhythmia'
+    status: 'In Stock',
+    location: 'Medicine Drawer A-2',
+    contraindications: 'Do not use with severe high blood pressure'
   },
   {
     id: 'MED-02',
-    category: 'Pharmaceuticals',
-    name: 'Epinephrine Auto-Injector 0.3mg',
-    indication: 'Anaphylaxis / Severe Systemic Shock',
+    category: 'Medications',
+    name: 'EpiPen Auto-Injector 0.3mg',
+    indication: 'Severe Allergy & Shock Emergency Pen',
     stock: 12,
-    unit: 'syringes',
+    unit: 'injectors',
     minSafeStock: 6,
     shelfLifeDays: 280,
     radiationDegradationRate: '0.08%/mo',
     vitalUrgency: 'Critical',
-    status: 'Nominal',
+    status: 'In Stock',
     location: 'Emergency Trauma Kit Alpha',
-    contraindications: 'Direct IV without dilution'
+    contraindications: 'For severe allergic emergencies only'
   },
   {
     id: 'MED-03',
-    category: 'Pharmaceuticals',
-    name: 'Ondansetron 8mg (Sublingual)',
-    indication: 'Space Adaptation Sickness & Severe Nausea',
+    category: 'Medications',
+    name: 'Ondansetron 8mg (Dissolvable)',
+    indication: 'Space Motion Sickness & Nausea Relief Wafer',
     stock: 88,
     unit: 'wafers',
     minSafeStock: 25,
     shelfLifeDays: 520,
     radiationDegradationRate: '0.02%/mo',
     vitalUrgency: 'Medium',
-    status: 'Nominal',
-    location: 'Cryo-Lock Drawer B-1',
-    contraindications: 'Prolonged QT interval'
+    status: 'In Stock',
+    location: 'Medicine Drawer B-1',
+    contraindications: 'Consult doctor if history of heart rhythm issues'
   },
   {
     id: 'MED-04',
-    category: 'Pharmaceuticals',
+    category: 'Medications',
     name: 'Tranexamic Acid (TXA) 1000mg',
-    indication: 'Uncontrolled Microgravity Hemorrhage',
+    indication: 'Bleeding Control Medicine (Rapid Clotting Aid)',
     stock: 8,
     unit: 'vials',
     minSafeStock: 6,
     shelfLifeDays: 340,
     radiationDegradationRate: '0.05%/mo',
     vitalUrgency: 'Critical',
-    status: 'Low Reserve Warning',
+    status: 'Low Stock Warning',
     location: 'Emergency Trauma Kit Alpha',
-    contraindications: 'Known active thromboembolic disease'
+    contraindications: 'Active blood clot history'
   },
   {
     id: 'MED-05',
     category: 'Critical Equipment',
-    name: 'Deep Space Ultrasound Scanner (V-Scan Handheld)',
-    indication: 'FAST Trauma Protocol, Optic Nerve Sheath & SANS Imaging',
+    name: 'Handheld Ultrasound Scanner',
+    indication: 'Internal Organ & Eye Health Scanner',
     stock: 2,
-    unit: 'units',
+    unit: 'scanners',
     minSafeStock: 2,
     shelfLifeDays: 1400,
     batteryChargePercent: 94,
     vitalUrgency: 'Critical',
-    status: 'Calibrated & Operational',
+    status: 'Calibrated & Ready to Use',
     location: 'Med-Bay Diagnostic Station Rack 1'
   },
   {
     id: 'MED-06',
     category: 'Critical Equipment',
-    name: 'Microgravity Automated External Defibrillator (AED)',
-    indication: 'Ventricular Fibrillation / Tachycardia',
+    name: 'Automated External Defibrillator (AED)',
+    indication: 'Emergency Heart Restart Machine',
     stock: 2,
-    unit: 'units',
+    unit: 'devices',
     minSafeStock: 1,
     shelfLifeDays: 980,
     batteryChargePercent: 98,
     vitalUrgency: 'Critical',
-    status: 'Self-Test Passed 06:00 MET',
-    location: 'Airlock Pre-Chamber & Habitat Node 2'
+    status: 'Self-Test Passed Today',
+    location: 'Airlock Pre-Chamber & Living Quarters'
   },
   {
     id: 'MED-07',
     category: 'Wearable Hardware',
-    name: 'ESP32 Bio-Telemetry Replacement Sensor Straps',
-    indication: 'ASTRA SENSE 5-Lead ECG & Dual Optical SpO2',
+    name: 'Spare Bio-Telemetry Sensor Straps',
+    indication: 'Replacement Heart, Oxygen & Temp Chest Straps',
     stock: 6,
-    unit: 'harnesses',
+    unit: 'straps',
     minSafeStock: 4,
     shelfLifeDays: 1800,
     vitalUrgency: 'High',
-    status: '4 Active / 2 Cold Spares',
-    location: 'Avionics Drawer C-3'
+    status: '4 Active / 2 Spares Ready',
+    location: 'Electronics Cabinet C-3'
   },
   {
     id: 'MED-08',
     category: 'Supplies',
-    name: 'Tactical Hemostatic Gauze & Tourniquets',
-    indication: 'EVA Laceration / Rapid Decompression Puncture',
+    name: 'Emergency Bandages & Tourniquets',
+    indication: 'Rapid Wound Dressing & Spacewalk First Aid',
     stock: 14,
     unit: 'kits',
     minSafeStock: 8,
     shelfLifeDays: 780,
     vitalUrgency: 'Critical',
-    status: 'Nominal',
-    location: 'EVA Prep Station'
+    status: 'In Stock',
+    location: 'Spacewalk Prep Station'
   }
 ];
 
 export const SIMULATED_EMERGENCY_SCENARIOS = [
   {
     id: 'SCENARIO-01',
-    name: 'Astronaut A Fatigue Crisis (Active)',
-    description: 'Dr. Vance sleep debt reaches critical threshold during scheduled clinical shift.',
+    name: 'Astronaut Fatigue Crisis',
+    description: 'Dr. Vance runs out of energy after working 38 hours straight.',
     requiredSupplies: [
-      { item: 'Modafinil 200mg', qty: '1 tab (emergency dose)' },
-      { item: 'Circadian Light Therapy Visor', qty: '45 min session' },
-      { item: 'Workload Handoff to Backup', qty: 'Cmdr. Chen assumed medical triage' }
+      { item: 'Modafinil 200mg', qty: '1 tablet (emergency dose)' },
+      { item: 'Warm Amber Lighting Visor', qty: '45-minute calming rest session' },
+      { item: 'Duty Transfer to Sarah Chen', qty: 'Sarah takes over routine medical checks' }
     ],
     predictedRecoveryHours: 14.5,
-    crewReadinessImpact: '-16 pts'
+    crewReadinessImpact: '-16 points'
   },
   {
     id: 'SCENARIO-02',
-    name: 'Cabin Depressurization / Decompression Sickness (DCS)',
-    description: 'Simulate micro-meteoroid strike causing 12 kPa cabin drop and acute nitrogen bubbles.',
+    name: 'Cabin Air & Pressure Drop',
+    description: 'Simulates sudden cabin air leak — crew puts on emergency oxygen masks.',
     requiredSupplies: [
-      { item: '100% Hyperbaric Oxygen Mask', qty: '2 units' },
-      { item: 'Tranexamic Acid', qty: '2 vials' },
-      { item: 'ESP32 Continuous Bubble Doppler', qty: '1 probe' }
+      { item: '100% Emergency Oxygen Mask', qty: '2 units' },
+      { item: 'Bleeding Control (TXA)', qty: '2 vials' },
+      { item: 'Chest Bubble Doppler Probe', qty: '1 probe' }
     ],
     predictedRecoveryHours: 48,
-    crewReadinessImpact: '-38 pts'
+    crewReadinessImpact: '-38 points'
   },
   {
     id: 'SCENARIO-03',
-    name: 'Acute Cardiac Arrhythmia in Microgravity',
-    description: 'Simulate fluid shift-induced potassium imbalance causing sustained premature ventricular contractions.',
+    name: 'Sudden Irregular Heartbeat',
+    description: 'Simulates mineral shift causing irregular rapid heartbeats.',
     requiredSupplies: [
-      { item: 'Microgravity AED', qty: '1 stand-by' },
-      { item: 'Electrolyte Infusion IV 500ml', qty: '2 bags' },
-      { item: 'Deep Space Ultrasound', qty: '1 scan' }
+      { item: 'Heart Defibrillator (AED)', qty: '1 unit on standby' },
+      { item: 'Electrolyte Mineral Drink 500ml', qty: '2 packets' },
+      { item: 'Handheld Ultrasound', qty: '1 heart scan' }
     ],
     predictedRecoveryHours: 24,
-    crewReadinessImpact: '-25 pts'
+    crewReadinessImpact: '-25 points'
   }
 ];
-

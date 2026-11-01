@@ -40,10 +40,10 @@ export const HealthTrendComparison = () => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-gray-100 dark:border-[#24252a] gap-3">
         <div>
           <span className="text-xs uppercase tracking-wider text-gray-400 font-medium">
-            Physiological Analytics
+            Crew Health Trends
           </span>
           <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100 mt-0.5">
-            Multi-Astronaut Health Comparison
+            Crew Health Over Time
           </h3>
         </div>
 
@@ -98,7 +98,7 @@ export const HealthTrendComparison = () => {
                 <Line 
                   type="monotone" 
                   dataKey="vanceHR" 
-                  name="Dr. Vance (Fatigued)" 
+                  name="Dr. Vance (Needs Rest)" 
                   stroke="#d97706" 
                   strokeWidth={2} 
                   dot={{ r: 2.5, fill: '#d97706' }} 

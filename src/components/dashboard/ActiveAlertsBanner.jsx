@@ -29,8 +29,7 @@ export const ActiveAlertsBanner = () => {
               {primaryAlert.name} — {primaryAlert.condition}
             </h3>
             <p className="text-xs text-gray-600 dark:text-gray-300 mt-0.5 leading-relaxed">
-              Resting pulse elevated to {primaryAlert.vitals.heartRate} bpm (+31%). Cumulative 72-hour sleep debt reached {primaryAlert.vitals.sleepDebtHours}h. 
-              Reaction latency delayed by +{primaryAlert.mlModel.cognitiveLatencyDelta_ms}ms.
+              Heart rate is slightly high at {primaryAlert.vitals.heartRate} bpm. Missing {primaryAlert.vitals.sleepDebtHours} hours of needed sleep over the last 3 days, causing slower reaction time (+{primaryAlert.mlModel.cognitiveLatencyDelta_ms}ms). Recommended: take a rest break and hand over non-urgent tasks.
             </p>
           </div>
         </div>
@@ -43,7 +42,7 @@ export const ActiveAlertsBanner = () => {
             }}
             className="px-3.5 py-2 text-xs font-medium rounded-lg bg-gray-900 text-white dark:bg-white dark:text-gray-900 hover:bg-neutral-800 transition-colors"
           >
-            Manage Duty Handoff
+            Review Task Handover
           </button>
         </div>
       </div>

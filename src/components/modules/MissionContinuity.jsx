@@ -13,15 +13,15 @@ export const MissionContinuity = () => {
             Module 6 – Mission Continuity
           </span>
           <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mt-0.5">
-            Recovery Tracker & Offline Incident Sync
+            Recovery Tracker & Logged Events
           </h2>
           <p className="text-xs text-gray-400 mt-0.5">
-            Post-incident rehabilitation milestones, sleep debt banking, and delayed Earth DSN synchronization.
+            Track crew recovery progress and see past health events. All updates are saved locally so they are never lost.
           </p>
         </div>
 
         <div className="text-xs text-gray-500">
-          Local Storage: <strong className="text-gray-800 dark:text-gray-200">1 Event Pending DSN Sync</strong>
+          Local Storage: <strong className="text-gray-800 dark:text-gray-200">Ready to send to Earth on next connection</strong>
         </div>
       </div>
 
@@ -29,10 +29,10 @@ export const MissionContinuity = () => {
       <div className="bg-white dark:bg-[#1a1b1f] border border-gray-100 dark:border-[#27282e] rounded-2xl p-6 shadow-sm space-y-4">
         <div>
           <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100">
-            Active Crew Rehabilitation Trajectories
+            Crew Rest & Recovery Progress
           </h3>
           <p className="text-xs text-gray-400 mt-0.5">
-            Tracking sleep debt recovery, circadian normalization, and return-to-duty clearance.
+            Track when resting crew members will be fully recovered and ready to resume duties.
           </p>
         </div>
 
@@ -73,7 +73,7 @@ export const MissionContinuity = () => {
       <div className="bg-white dark:bg-[#1a1b1f] border border-gray-100 dark:border-[#27282e] rounded-2xl p-6 shadow-sm space-y-4">
         <div>
           <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100">
-            Incident History & Offline Ledger
+            Recent Health Events & Care Log
           </h3>
           <p className="text-xs text-gray-400 mt-0.5">
             Locally persisted clinical events queued for transmission across Deep Space Network.

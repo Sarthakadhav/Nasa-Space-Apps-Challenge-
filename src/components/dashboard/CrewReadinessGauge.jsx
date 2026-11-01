@@ -14,7 +14,7 @@ export const CrewReadinessGauge = () => {
             Crew Intelligence
           </span>
           <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100 mt-0.5">
-            Crew Operational Readiness
+            Overall Crew Readiness
           </h2>
           <p className="text-xs text-gray-400 mt-0.5">
             {crewReadiness.disclaimer}
@@ -65,7 +65,7 @@ export const CrewReadinessGauge = () => {
           </thead>
           <tbody className="divide-y divide-gray-50 dark:divide-[#24252a]">
             {crew.map(ast => {
-              const isFatigued = ast.condition === 'Fatigued';
+              const isWarning = ast.conditionSeverity === 'warning' || ast.conditionSeverity === 'critical';
               return (
                 <tr key={ast.id} className="hover:bg-gray-50/50 dark:hover:bg-[#202126] transition-colors">
                   <td className="py-3 font-medium text-gray-900 dark:text-gray-100 flex items-center space-x-2.5">
@@ -77,15 +77,15 @@ export const CrewReadinessGauge = () => {
                     <span>{ast.name}</span>
                   </td>
                   <td className="py-3">
-                    {isFatigued ? (
+                    {isWarning ? (
                       <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-50 text-amber-800 dark:bg-amber-950/40 dark:text-amber-300">
                         <span className="w-1.5 h-1.5 rounded-full bg-amber-500 mr-1.5"></span>
-                        Fatigued
+                        {ast.condition}
                       </span>
                     ) : (
                       <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium text-gray-600 dark:text-gray-300">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1.5"></span>
-                        Healthy
+                        {ast.condition}
                       </span>
                     )}
                   </td>
@@ -121,12 +121,12 @@ export const CrewReadinessGauge = () => {
               onClick={applyWorkloadRedistribution}
               className="w-full sm:w-auto px-4 py-2 text-xs font-medium rounded-lg bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 hover:bg-neutral-800 transition-colors shadow-sm"
             >
-              Reassign Non-Urgent Duties
+              Hand Over Non-Urgent Tasks
             </button>
           ) : (
             <span className="inline-flex items-center text-xs font-medium text-emerald-700 dark:text-emerald-400">
               <Check className="w-4 h-4 mr-1" />
-              Duties Reassigned & Active
+              Duties Handed Over & Rest Active
             </span>
           )}
         </div>

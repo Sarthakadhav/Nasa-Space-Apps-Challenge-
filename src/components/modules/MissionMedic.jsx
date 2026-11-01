@@ -45,7 +45,7 @@ export const MissionMedic = () => {
             Mission Medic: Offline Assistant
           </h2>
           <p className="text-xs text-gray-400 mt-0.5">
-            Spaceflight clinical standard operating procedures (SOPs) executable locally in deep space without Earth link.
+            Step-by-step health emergency guides that work completely offline, even when there is no internet or Earth connection.
           </p>
         </div>
 
@@ -84,14 +84,14 @@ export const MissionMedic = () => {
             <p className="text-xs text-gray-600 dark:text-gray-300 mt-1 leading-relaxed">
               {selectedAstronaut.id === 'AST-01' ? (
                 <span>
-                  Acute Circadian Desynchronosis and Workload-Induced Neuro-Fatigue. 
-                  Cumulative sleep debt is 6.4h, resting pulse elevated to 84 bpm (baseline 64), and HRV depressed to 24 ms. 
-                  Cognitive reaction latency is delayed (+185ms), elevating operational risk for complex procedures.
+                  High Fatigue & Sleep Shortage: Elena is missing over 6.4 hours of sleep from long shifts. 
+                  Her resting heart rate is slightly elevated at 84 bpm (normal is 64 bpm), and her recovery speed is down. 
+                  Because her reaction time is 185ms slower than usual, having a crewmate cover her complex duties and taking a rest break is strongly advised.
                 </span>
               ) : (
                 <span>
-                  Nominal physiological adaptation. Zero signs of acute microgravity cephalad fluid congestion or cognitive decline. 
-                  Full operational readiness confirmed.
+                  All vitals are normal and healthy: Good heart rate, clear oxygen levels, and sharp reaction times. 
+                  Fully ready for normal spaceflight activities.
                 </span>
               )}
             </p>
@@ -122,7 +122,7 @@ export const MissionMedic = () => {
         <div className="bg-white dark:bg-[#1a1b1f] border border-gray-100 dark:border-[#27282e] rounded-2xl p-6 shadow-sm space-y-4">
           <div>
             <span className="text-xs uppercase tracking-wider text-gray-400 font-medium">
-              Approved Response Checklist
+              Step-by-Step Action Guide
             </span>
             <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100 mt-0.5">
               {activeProtocol.title}
@@ -175,7 +175,7 @@ export const MissionMedic = () => {
               Crew Self-Reporting
             </span>
             <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100 mt-0.5">
-              In-Flight Symptom Questionnaire
+              Quick Health Check-In
             </h3>
           </div>
 
@@ -213,7 +213,7 @@ export const MissionMedic = () => {
                 type="text"
                 value={savedActionNotes}
                 onChange={(e) => setSavedActionNotes(e.target.value)}
-                placeholder="e.g. Administered 100mg Modafinil, re-measured vitals..."
+                placeholder="e.g. Took a 20-minute rest break, drank water, re-checked pulse..."
                 className="flex-1 px-3 py-2 rounded-lg bg-gray-50 dark:bg-[#202126] border border-gray-200 dark:border-[#333] text-xs focus:outline-none focus:border-neutral-900 text-gray-900 dark:text-gray-100"
               />
               <button
@@ -225,7 +225,7 @@ export const MissionMedic = () => {
             </div>
             {isSaved && (
               <span className="text-xs text-emerald-700 dark:text-emerald-400 block">
-                ✓ Recorded locally to SQLite and queued for DSN transmission.
+                ✓ Saved safely on your local device. (Will sync with Earth when signal returns).
               </span>
             )}
           </form>

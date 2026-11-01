@@ -43,7 +43,7 @@ export const LandingOverview = () => {
           <div className="flex items-center space-x-1.5 mt-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
             <span className="text-sm font-semibold text-gray-900 dark:text-gray-100">
-              3 Healthy, 1 Fatigued
+              3 Alert, 1 Needs Rest
             </span>
           </div>
           <span className="text-xs text-gray-400 block mt-0.5">
@@ -61,7 +61,7 @@ export const LandingOverview = () => {
             </span>
           </div>
           <span className="text-xs text-gray-400 block mt-0.5">
-            Operational Risk
+            Fatigue Warning
           </span>
         </div>
 
@@ -91,7 +91,7 @@ export const LandingOverview = () => {
               Astronaut Profiles
             </h2>
             <p className="text-xs text-gray-400 mt-0.5">
-              Select an astronaut to review live physiological telemetry and clinical status.
+              Click any crew member to view their real-time heart rate, oxygen levels, and wellness status.
             </p>
           </div>
           <button
@@ -149,7 +149,7 @@ export const LandingOverview = () => {
                 Medical Inventory
               </span>
               <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100 mt-0.5">
-                Critical Reserves
+                Essential First-Aid & Meds
               </h3>
             </div>
             <button
@@ -192,7 +192,7 @@ export const LandingOverview = () => {
                 Offline Event Storage
               </span>
               <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100 mt-0.5">
-                Incident & Sync Ledger
+                Recent Health Events & Offline Log
               </h3>
             </div>
             <button

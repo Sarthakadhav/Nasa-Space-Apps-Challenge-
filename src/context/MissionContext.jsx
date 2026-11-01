@@ -100,10 +100,10 @@ export const MissionProvider = ({ children }) => {
         if (ast.id === 'AST-01') {
           return {
             ...ast,
-            condition: 'Resting / Relieved',
+            condition: 'Resting & Recovering',
             conditionSeverity: 'nominal',
             isReassigned: true,
-            recommendation: 'Workload successfully transferred to Cmdr. Sarah Chen. Protected rest cycle active.',
+            recommendation: 'Duties safely handed over to Cmdr. Sarah Chen. Quiet rest period is active.',
             readinessScore: 78
           };
         }
@@ -112,7 +112,7 @@ export const MissionProvider = ({ children }) => {
             ...ast,
             responsibilities: [
               ...ast.responsibilities,
-              { id: 'RESP-01-TRANSFER', title: '[Assumed] Crew Clinical Checkups', priority: 'High', canDelegate: false }
+              { id: 'RESP-01-TRANSFER', title: '[Covering for Vance] Daily Health Checkups', priority: 'High', canDelegate: false }
             ]
           };
         }
@@ -124,8 +124,8 @@ export const MissionProvider = ({ children }) => {
     setCrewReadiness(prev => ({
       ...prev,
       overallScore: 82,
-      statusDescription: 'Stabilized - Medical Officer in Deep Rest Cycle, Duties Transferred',
-      aiRecommendation: 'Workload rebalance effective. Cmdr. Sarah Chen assumed clinical oversight. Re-evaluate Dr. Vance in 8 hours.'
+      statusDescription: 'Stable - Dr. Vance is resting while Cmdr. Chen covers duties',
+      aiRecommendation: 'Workload transfer complete! Commander Chen is covering medical duties. Dr. Vance will rest for 8 hours.'
     }));
 
     // Add Incident Entry
@@ -133,16 +133,16 @@ export const MissionProvider = ({ children }) => {
       id: `INC-2026-${Date.now().toString().slice(-4)}`,
       timestamp: `MET ${met.days}d ${String(met.hours).padStart(2, '0')}:${String(met.mins).padStart(2, '0')}:${String(met.secs).padStart(2, '0')}`,
       severity: 'NOMINAL',
-      type: 'Crew Workload Redistribution Executed',
+      type: 'Crew Workload Handover Complete',
       targetAstronautId: 'AST-01',
       targetAstronautName: 'Dr. Elena Vance',
-      summary: 'Clinical responsibilities safely delegated to Cmdr. Sarah Chen (Level 2 Flight Med cert). 8-hour protected sleep cycle initiated.',
-      resolutionStatus: 'Active - Monitoring Rest',
-      syncStatus: 'Queued for Earth DSN Sync',
+      summary: 'Medical tasks were safely handed to Cmdr. Sarah Chen. Dr. Vance has started an 8-hour sleep break.',
+      resolutionStatus: 'In Progress - Astronaut Resting',
+      syncStatus: 'Saved locally (Will send to Earth on next connection)',
       assignedOfficer: 'Cmdr. Sarah Chen',
       actionsTaken: [
-        'Astronaut A transferred to acoustic-damped sleep pod.',
-        'Emergency trauma standby assigned to Cmdr. Chen.'
+        'Astronaut moved to quiet sleep cabin.',
+        'Emergency first-response coverage handed to Cmdr. Chen.'
       ]
     };
 
@@ -172,8 +172,8 @@ export const MissionProvider = ({ children }) => {
       setCrewReadiness(prev => ({
         ...prev,
         overallScore: 48,
-        statusDescription: 'CRITICAL EMERGENCY: Cabin Pressure Anomaly Detected',
-        aiRecommendation: 'Engage 100% Oxygen Protocol immediately. Halt non-essential activities.'
+        statusDescription: 'URGENT ALERT: Low Cabin Air Pressure Detected',
+        aiRecommendation: 'Put on oxygen masks right away. Pause all routine work until pressure stabilizes.'
       }));
     } else if (scenarioId === 'SCENARIO-03') {
       // Arrhythmia on Astronaut D
@@ -182,7 +182,7 @@ export const MissionProvider = ({ children }) => {
           if (ast.id === 'AST-04') {
             return {
               ...ast,
-              condition: 'Arrhythmia Alert',
+              condition: 'Irregular Heart Rhythm',
               conditionSeverity: 'critical',
               vitals: {
                 ...ast.vitals,
@@ -192,7 +192,7 @@ export const MissionProvider = ({ children }) => {
               mlModel: {
                 ...ast.mlModel,
                 anomalyScore: -0.78,
-                status: 'CRITICAL CARDIAC OUTLIER'
+                status: 'Unusual heart rhythm detected - please rest'
               }
             };
           }

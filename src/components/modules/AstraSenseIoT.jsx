@@ -17,10 +17,10 @@ export const AstraSenseIoT = () => {
             Module 1 – ASTRA SENSE
           </span>
           <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mt-0.5">
-            Wearable Telemetry & Sensor Reliability
+            Astronaut Wearable Sensors & Signal Quality
           </h2>
           <p className="text-xs text-gray-400 mt-0.5">
-            Continuous vital-sign acquisition via ESP32 bio-sensor harness (ECG, SpO₂, Core Temp, IMU motion).
+            Live health readings streaming from the astronaut's wearable device. Orbital Guard automatically checks signal quality so loose patches never trigger false alarms.
           </p>
         </div>
 
@@ -148,10 +148,10 @@ export const AstraSenseIoT = () => {
             <thead>
               <tr className="text-gray-400 uppercase tracking-wider border-b border-gray-50 dark:border-[#24252a] text-[11px]">
                 <th className="pb-3 font-normal">Astronaut</th>
-                <th className="pb-3 font-normal">Electrode Contact</th>
-                <th className="pb-3 font-normal">SNR</th>
-                <th className="pb-3 font-normal">Packet Loss</th>
-                <th className="pb-3 font-normal text-right">Reliability</th>
+                <th className="pb-3 font-normal">Skin Contact</th>
+                <th className="pb-3 font-normal">Signal Clarity</th>
+                <th className="pb-3 font-normal">Data Loss</th>
+                <th className="pb-3 font-normal text-right">Sensor Health</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-50 dark:divide-[#24252a]">

@@ -1,1 +1,10 @@
 node_modules
+.venv
+venv
+*.pyc
+__pycache__
+.pytest_cache
+*.db
+*.db-wal
+*.db-shm
+.env

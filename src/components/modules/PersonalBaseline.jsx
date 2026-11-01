@@ -12,35 +12,35 @@ export const PersonalBaseline = () => {
       current: `${selectedAstronaut.vitals.heartRate} bpm`,
       baseline: `${selectedAstronaut.vitals.heartRateBaseline} bpm`,
       delta: `${selectedAstronaut.vitals.heartRate > selectedAstronaut.vitals.heartRateBaseline ? '+' : ''}${Math.round(((selectedAstronaut.vitals.heartRate - selectedAstronaut.vitals.heartRateBaseline) / selectedAstronaut.vitals.heartRateBaseline) * 100)}%`,
-      status: selectedAstronaut.vitals.heartRate > 80 ? 'Elevated (Sympathetic Stress)' : 'Nominal'
+      status: selectedAstronaut.vitals.heartRate > 80 ? 'Slightly High (Needs rest)' : 'Normal & Healthy'
     },
     {
       metric: 'Heart Rate Variability (RMSSD)',
       current: `${selectedAstronaut.vitals.hrv} ms`,
       baseline: `${selectedAstronaut.vitals.hrvBaseline} ms`,
       delta: `${Math.round(((selectedAstronaut.vitals.hrv - selectedAstronaut.vitals.hrvBaseline) / selectedAstronaut.vitals.hrvBaseline) * 100)}%`,
-      status: selectedAstronaut.vitals.hrv < 30 ? 'Critically Depressed' : 'Nominal'
+      status: selectedAstronaut.vitals.hrv < 30 ? 'Low Recovery (Fatigue)' : 'Optimal Recovery'
     },
     {
       metric: 'Oxygen Saturation (SpO₂)',
       current: `${selectedAstronaut.vitals.spo2}%`,
       baseline: `${selectedAstronaut.vitals.spo2Baseline}%`,
       delta: `${selectedAstronaut.vitals.spo2 - selectedAstronaut.vitals.spo2Baseline}%`,
-      status: selectedAstronaut.vitals.spo2 < 97 ? 'Mild Hypoxic Dip' : 'Optimal'
+      status: selectedAstronaut.vitals.spo2 < 97 ? 'Slight Drop' : 'Optimal'
     },
     {
       metric: 'Core Body Temperature',
       current: `${selectedAstronaut.vitals.temperature} °C`,
       baseline: `${selectedAstronaut.vitals.tempBaseline} °C`,
       delta: `+${Math.round((selectedAstronaut.vitals.temperature - selectedAstronaut.vitals.tempBaseline) * 10) / 10} °C`,
-      status: 'Circadian Drift'
+      status: 'Normal Body Temp'
     },
     {
       metric: '72-Hour Sleep Debt',
       current: `${selectedAstronaut.vitals.sleepDebtHours} hrs`,
       baseline: '< 1.0 hr target',
       delta: `+${selectedAstronaut.vitals.sleepDebtHours}h`,
-      status: selectedAstronaut.vitals.sleepDebtHours > 4.0 ? 'Severe Deficit' : 'Nominal'
+      status: selectedAstronaut.vitals.sleepDebtHours > 4.0 ? 'High Sleep Debt' : 'Well Rested'
     }
   ];
 
@@ -56,7 +56,7 @@ export const PersonalBaseline = () => {
             Personal Health Baseline & Isolation Forest
           </h2>
           <p className="text-xs text-gray-400 mt-0.5">
-            Learned physiological normal baselines tailored per astronaut to detect microgravity degradation.
+            Every astronaut has a unique, healthy baseline. Orbital Guard learns each person's normal numbers and detects early signs of fatigue or stress before they turn into emergencies.
           </p>
         </div>
 
@@ -109,6 +109,15 @@ export const PersonalBaseline = () => {
           </div>
         </div>
 
+        {/* User-friendly explanation guide */}
+        <div className="p-3.5 rounded-xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/50 dark:border-amber-900/30 text-xs text-amber-900 dark:text-amber-200 flex items-start space-x-2.5">
+          <span className="font-semibold shrink-0">💡 Quick Guide:</span>
+          <span className="leading-relaxed">
+            A positive score (+) means vitals are steady and within this astronaut's normal healthy range. 
+            A negative score (−) means vitals differ from normal, showing early fatigue or physical stress before it becomes serious.
+          </span>
+        </div>
+
         {/* Feature Contribution Breakdown */}
         <div className="space-y-3">
           <span className="text-xs font-medium uppercase tracking-wider text-gray-400 block">
@@ -154,10 +163,10 @@ export const PersonalBaseline = () => {
             <thead>
               <tr className="text-gray-400 uppercase tracking-wider border-b border-gray-50 dark:border-[#24252a] text-[11px]">
                 <th className="pb-3 font-normal">Metric</th>
-                <th className="pb-3 font-normal">Live Telemetry</th>
-                <th className="pb-3 font-normal">Individual Baseline</th>
-                <th className="pb-3 font-normal">Variance</th>
-                <th className="pb-3 font-normal text-right">Clinical Evaluation</th>
+                <th className="pb-3 font-normal">Live Reading</th>
+                <th className="pb-3 font-normal">Personal Normal</th>
+                <th className="pb-3 font-normal">Difference</th>
+                <th className="pb-3 font-normal text-right">Health Status</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-50 dark:divide-[#24252a]">

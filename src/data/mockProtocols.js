@@ -1,83 +1,83 @@
 // MISSION-MEDIC: Offline Deep Space Clinical Protocol Knowledge Base
-// Module 5: Operates 100% locally when Earth communication has 14-24 min one-way delay
+// Simple, step-by-step emergency instructions that work 100% locally without internet
 
 export const MEDICAL_PROTOCOLS = [
   {
     id: 'SOP-FATIGUE-01',
-    title: 'Acute Spaceflight Fatigue & Cognitive Degradation Countermeasure',
-    category: 'Neuro-Cognitive & Circadian',
-    triggerCriteria: 'Sleep debt > 4h OR HRV drop > 35% OR Anomaly Score < -0.30',
+    title: 'Protocol 1: Astronaut Rest & Fatigue Recovery',
+    category: 'Rest & Alertness',
+    triggerCriteria: 'Sleep debt > 4 hours OR heart rate elevated from tiredness',
     steps: [
       {
         step: 1,
-        instruction: 'Immediate Workload Freeze: Reassign active high-risk mission duties (EVA, Medical, Docking) to primary backup.',
-        actionRequired: 'Execute Crew Matrix Task Redistribution'
+        instruction: 'Hand Over Active Duties: Reassign high-focus mission tasks (medical checkups, spacewalks) to your certified backup.',
+        actionRequired: 'Click "Reassign Duties" in Crew Matrix'
       },
       {
         step: 2,
-        instruction: 'Administer Neuro-Cognitive Saccade and PVT (Psychomotor Vigilance Test) via station terminal.',
-        actionRequired: 'Verify PVT reaction latency'
+        instruction: 'Take Quick Reaction Check: Complete a 2-minute focus test on the station screen to measure reaction speed.',
+        actionRequired: 'Verify reaction time'
       },
       {
         step: 3,
-        instruction: 'Initiate 6-8h protected dark sleep cycle with circadian blue-light restriction (< 10 lux warm ambient).',
-        actionRequired: 'Crew habitat environmental adjustment'
+        instruction: 'Protected Sleep: Rest for 6 to 8 hours in dark, quiet sleep quarters with dimmed warm lighting.',
+        actionRequired: 'Dim sleep quarters lights'
       },
       {
         step: 4,
-        instruction: 'If acute operational alertness is unavoidable for critical station emergency, administer Modafinil 100-200mg PO with 500ml water.',
-        actionRequired: 'Med-Vault dispensation authorization'
+        instruction: 'Emergency Alertness Tablet: If an urgent station emergency arises and sleep is impossible, take 1 Modafinil tablet with water.',
+        actionRequired: 'Dispense 1 Modafinil from Med Vault'
       }
     ]
   },
   {
     id: 'SOP-HYPOXIA-02',
-    title: 'Hypoxia & ECLSS Cabin Atmosphere Contamination Emergency',
-    category: 'Respiratory / Life Support',
-    triggerCriteria: 'SpO2 < 92% OR Cabin pO2 < 18 kPa OR Ambient CO2 > 4.5 mmHg',
+    title: 'Protocol 2: Low Oxygen & Cabin Air Emergency',
+    category: 'Air & Breathing',
+    triggerCriteria: 'Oxygen saturation (SpO2) drops below 92% OR cabin air pressure falls',
     steps: [
       {
         step: 1,
-        instruction: 'Don Emergency Oxygen Mask (100% O2 positive pressure regulator) immediately.',
-        actionRequired: 'Immediate mask seal check'
+        instruction: 'Put on Emergency Oxygen Mask immediately (100% pure oxygen supply).',
+        actionRequired: 'Secure mask seal over nose and mouth'
       },
       {
         step: 2,
-        instruction: 'Verify cabin pCO2 on ECLSS telemetry console; engage auxiliary lithium hydroxide canister scrubbers.',
-        actionRequired: 'ECLSS manual override'
+        instruction: 'Switch on extra air scrubbers to clean cabin air and remove excess carbon dioxide.',
+        actionRequired: 'Turn on backup air recyclers'
       },
       {
         step: 3,
-        instruction: 'Continuously sample SpO2 and peripheral perfusion index via ASTRA SENSE wearable telemetry.',
-        actionRequired: 'Monitor return to > 97% SpO2'
+        instruction: 'Watch wearable sensor readings until blood oxygen rises back to healthy levels (98%+).',
+        actionRequired: 'Verify SpO2 returns above 97%'
       }
     ]
   },
   {
     id: 'SOP-ARRHYTHMIA-03',
-    title: 'Microgravity Induced Cardiac Dysrhythmia & Electrolyte Derangement',
-    category: 'Cardiovascular',
-    triggerCriteria: 'ASTRA SENSE detection of persistent PVCs > 6/min or sustained tachycardia > 120 bpm at rest',
+    title: 'Protocol 3: Irregular Heartbeat & Pulse Guide',
+    category: 'Heart Health',
+    triggerCriteria: 'Resting pulse exceeds 120 bpm OR irregular heartbeat patterns detected',
     steps: [
       {
         step: 1,
-        instruction: 'Place astronaut in horizontal restraint harness in Med-Bay station.',
-        actionRequired: 'Patient stabilization'
+        instruction: 'Rest in medical bed: Have the astronaut lie down comfortably in the medical station.',
+        actionRequired: 'Rest astronaut in calm position'
       },
       {
         step: 2,
-        instruction: 'Deploy 5-lead diagnostic telemetry with ASTRA SENSE high-fidelity sampling mode (250 Hz).',
-        actionRequired: 'Run 12-lead equivalent rhythm trace'
+        instruction: 'Turn on high-detail heart monitoring on the wearable strap.',
+        actionRequired: 'Switch ECG to diagnostic mode'
       },
       {
         step: 3,
-        instruction: 'Measure serum potassium and magnesium via in-flight i-STAT point-of-care dry cartridge analyzer.',
-        actionRequired: 'Check electrolytes within 5 minutes'
+        instruction: 'Test mineral and hydration levels (potassium and magnesium) using the handheld analyzer.',
+        actionRequired: 'Run quick blood droplet test'
       },
       {
         step: 4,
-        instruction: 'If ventricular arrhythmia refractory, stage Automated External Defibrillator (AED) in standby mode.',
-        actionRequired: 'AED readiness verified'
+        instruction: 'Keep emergency defibrillator on standby nearby as a safety precaution.',
+        actionRequired: 'Verify defibrillator battery is ready'
       }
     ]
   }
@@ -85,24 +85,23 @@ export const MEDICAL_PROTOCOLS = [
 
 export const OFFLINE_DIAGNOSTIC_FLOWS = {
   fatigue: {
-    symptomPrompt: 'Astronaut is exhibiting elevated resting pulse, micro-sleep episodes, or delayed reaction times.',
+    symptomPrompt: 'Astronaut is showing signs of tiredness, elevated resting heart rate, or slower reaction time.',
     questions: [
       {
         id: 'q1',
-        text: 'How many hours of uninterrupted sleep was achieved in the preceding 24 hours?',
-        options: ['Less than 4 hours', '4 to 6 hours', 'Greater than 6 hours']
+        text: 'How many hours of uninterrupted sleep did the astronaut get in the last 24 hours?',
+        options: ['Less than 4 hours (Severe deficit)', '4 to 6 hours (Moderate fatigue)', 'More than 6 hours (Normal)']
       },
       {
         id: 'q2',
-        text: 'Are there symptoms of headaches, nausea, or visual aura (space motion / SANS)?',
-        options: ['No neurological symptoms, strictly exhaustion', 'Mild headache & eye strain', 'Marked nausea and dizziness']
+        text: 'Is the astronaut experiencing headaches, eye strain, or motion sickness?',
+        options: ['No headaches, just feeling tired', 'Mild headache & heavy eyes', 'Dizzy or nauseous']
       },
       {
         id: 'q3',
-        text: 'Is the astronaut scheduled for imminent critical mission procedures (EVA, docking, ECLSS surgery)?',
-        options: ['Yes - High Risk Duties Imminent', 'No - Standby / Laboratory Duties Only']
+        text: 'Is the astronaut scheduled for high-focus duties (spacewalk, docking, critical maintenance) right now?',
+        options: ['Yes — High-risk duties coming up (Reassign now)', 'No — Standby or quiet lab tasks only']
       }
     ]
   }
 };
-

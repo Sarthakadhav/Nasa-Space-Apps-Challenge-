@@ -24,10 +24,10 @@ export const MedVault = () => {
             Module 4 – Mission Intelligence
           </span>
           <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mt-0.5">
-            Med Vault: Resource Intelligence
+            Medical Kit & Supplies
           </h2>
           <p className="text-xs text-gray-400 mt-0.5">
-            Pharmaceutical inventory tracking, equipment operational state, and radiation degradation modeling.
+            Check medicines, emergency first-aid supplies, and equipment status. See what is in stock and what will be needed during an emergency.
           </p>
         </div>
 
@@ -57,7 +57,7 @@ export const MedVault = () => {
               Contingency Planning
             </span>
             <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100 mt-0.5">
-              Simulated Emergency Supply Depletion
+              Emergency Supply Calculator (What-If Scenarios)
             </h3>
           </div>
 
@@ -118,10 +118,10 @@ export const MedVault = () => {
               <tr className="text-gray-400 uppercase tracking-wider border-b border-gray-50 dark:border-[#24252a] text-[11px]">
                 <th className="pb-3 font-normal">Item</th>
                 <th className="pb-3 font-normal">Category</th>
-                <th className="pb-3 font-normal">Stock</th>
-                <th className="pb-3 font-normal">Shelf Life</th>
-                <th className="pb-3 font-normal">Cosmic Degradation</th>
-                <th className="pb-3 font-normal">Location</th>
+                <th className="pb-3 font-normal">In Stock</th>
+                <th className="pb-3 font-normal">Expires In</th>
+                <th className="pb-3 font-normal">Radiation Shielding</th>
+                <th className="pb-3 font-normal">Storage Locker</th>
                 <th className="pb-3 font-normal text-right">Status</th>
               </tr>
             </thead>
